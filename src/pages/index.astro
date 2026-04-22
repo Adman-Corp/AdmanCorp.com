@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+
+const problems = [
+  'Deployments rely on manual steps and team memory.',
+  'Infrastructure changes are inconsistent between environments.',
+  'CI/CD pipelines are fragile, slow, or difficult to maintain.',
+  'Repetitive operational work has not yet been automated.'
+];
+
+const services = [
+  {
+    title: 'Infrastructure as Code',
+    description:
+      'Bring infrastructure under version control, reduce configuration drift, and make environments easier to reproduce and maintain.',
+    deliverables: ['Terraform or IaC cleanup', 'Environment standardization', 'Repository structure and documentation improvements']
+  },
+  {
+    title: 'CI/CD Improvement',
+    description:
+      'Improve build and deployment workflows so releases are more consistent, easier to understand, and less dependent on manual intervention.',
+    deliverables: ['Pipeline cleanup and simplification', 'Deployment workflow improvements', 'Build reliability guardrails']
+  },
+  {
+    title: 'Infrastructure Automation',
+    description:
+      'Remove repetitive operational work by automating routine infrastructure tasks and standardizing common workflows.',
+    deliverables: ['Environment bootstrap automation', 'Operational scripts and task runners', 'Repeatable deployment and maintenance workflows']
+  }
+];
+
+const projects = [
+  {
+    name: 'Project placeholder',
+    summary: 'Replace this with a real public project or representative infrastructure example before launch.',
+    stack: 'Terraform, GitHub Actions, Cloudflare',
+    href: 'https://github.com/Adman-Corp'
+  },
+  {
+    name: 'Project placeholder',
+    summary: 'Use concise, factual wording that explains what was built and why it mattered technically.',
+    stack: 'Kubernetes, CI/CD, automation',
+    href: 'https://github.com/Adman-Corp'
+  }
+];
+
+const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Public GitHub presence', 'Focused scope in infrastructure, CI/CD, and automation'];
+---
+
+<BaseLayout
+  title="Adman Inc. | Infrastructure, CI/CD, and automation"
+  description="Practical infrastructure engineering for growing technical teams in need of cleaner delivery and more repeatable operations."
+  path="/"
+>
+  <SiteHeader currentPath="/" />
+  <main>
+    <section class="section hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow">Montreal, QC</p>
+          <h1>Practical infrastructure engineering for growing technical teams</h1>
+          <p class="hero__lede">
+            I help small and mid-sized technical teams make infrastructure and deployments more repeatable through
+            infrastructure as code, CI/CD improvements, and targeted automation.
+          </p>
+          <div class="button-row">
+            <a class="button" href="/contact">Start a conversation</a>
+            <a class="button-secondary" href="#selected-work">View selected work</a>
+          </div>
+        </div>
+        <div class="hero__panel card">
+          <p class="kicker">Good fit</p>
+          <ul class="list-clean">
+            <li>Teams shipping product but still relying on too many manual infrastructure steps.</li>
+            <li>Engineering groups that need cleaner CI/CD and fewer one-off deployment workflows.</li>
+            <li>Companies trying to make infrastructure more repeatable before they scale complexity further.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="kicker">Where I can help</p>
+        <h2 class="section-title">Common operational problems worth fixing early</h2>
+        <p class="section-intro">
+          This is a good fit for teams that are shipping product, but still relying on too many manual infrastructure and
+          delivery steps.
+        </p>
+        <div class="card-grid two">
+          {problems.map((problem) => (
+            <article class="card">
+              <p>{problem}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="kicker">Services</p>
+        <h2 class="section-title">Focused infrastructure work with clear boundaries</h2>
+        <p class="section-intro">
+          I focus on a small number of practical infrastructure services that help teams reduce manual work and build
+          more repeatable systems.
+        </p>
+        <div class="card-grid three">
+          {services.map((service) => (
+            <article class="card">
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <ul>
+                {service.deliverables.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="selected-work">
+      <div class="container">
+        <p class="kicker">Selected work</p>
+        <h2 class="section-title">Public work and representative technical examples</h2>
+        <p class="section-intro">
+          A few examples of public technical work and representative infrastructure projects. Keep this section factual
+          and link directly to code where possible.
+        </p>
+        <div class="card-grid two">
+          {projects.map((project) => (
+            <article class="card">
+              <h3>{project.name}</h3>
+              <p>{project.summary}</p>
+              <p><strong>Stack:</strong> {project.stack}</p>
+              <a href={project.href} target="_blank" rel="noreferrer">View project</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container how-it-works">
+        <div>
+          <p class="kicker">How I work</p>
+          <h2 class="section-title">Small, focused engagements with clear outcomes</h2>
+          <p class="section-intro">
+            I prefer focused engagements with clear deliverables, practical implementation, and documentation your team
+            can maintain after handoff.
+          </p>
+        </div>
+        <ol class="how-it-works__steps">
+          <li class="card">Review the current setup and identify the most useful improvement.</li>
+          <li class="card">Define a focused scope with clear technical deliverables.</li>
+          <li class="card">Implement changes that are documented, maintainable, and easy for your team to own.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card trust">
+        <div>
+          <p class="kicker">Why Adman Inc.</p>
+          <h2 class="section-title">Straightforward technical scope, public work, and practical delivery</h2>
+          <p>
+            The goal is straightforward: make infrastructure and delivery workflows cleaner, more reliable, and easier
+            to maintain.
+          </p>
+        </div>
+        <ul class="trust__list">
+          {trustItems.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card closing-cta">
+        <div>
+          <p class="kicker">Start here</p>
+          <h2 class="section-title">Have an infrastructure or delivery bottleneck?</h2>
+          <p>
+            If your team is dealing with manual deploys, inconsistent environments, or fragile automation, I can help
+            scope a focused improvement.
+          </p>
+        </div>
+        <div class="button-row">
+          <a class="button" href="/contact">Start a conversation</a>
+          <a class="button-secondary" href="mailto:hello@admancorp.com">Or email directly</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="container">
+    <SiteFooter />
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: 4rem;
+  }
+
+  .hero__inner,
+  .trust,
+  .closing-cta {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .hero__copy {
+    max-width: 42rem;
+  }
+
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.75rem, 6vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+  }
+
+  .hero__lede {
+    max-width: 38rem;
+    margin: 0 0 1.5rem;
+    color: var(--color-muted);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+  }
+
+  .how-it-works__steps,
+  .trust__list {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .how-it-works__steps {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .trust__list li + li {
+    margin-top: 0.75rem;
+  }
+
+  @media (min-width: 64rem) {
+    .hero__inner {
+      grid-template-columns: minmax(0, 1.35fr) minmax(20rem, 0.85fr);
+      align-items: center;
+    }
+
+    .trust,
+    .closing-cta {
+      grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+      align-items: center;
+    }
+
+    .how-it-works {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+  }
+</style>

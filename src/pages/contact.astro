@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+
+const goodFit = [
+  'Cleaning up infrastructure as code',
+  'Improving CI/CD pipelines',
+  'Automating repetitive infrastructure tasks',
+  'Stabilizing delivery workflows before growth'
+];
+
+const notFocus = ['Large multi-team transformation programs', 'Fully managed 24/7 operations'];
+---
+
+<BaseLayout
+  title="Contact Adman Inc."
+  description="Get in touch about infrastructure as code, CI/CD improvements, and targeted infrastructure automation."
+  path="/contact"
+>
+  <SiteHeader currentPath="/contact" />
+  <main>
+    <section class="section contact-hero">
+      <div class="container contact-hero__inner">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h1>Contact Adman Inc.</h1>
+          <p class="contact-hero__lede">
+            If your team needs help cleaning up infrastructure as code, improving CI/CD, or reducing manual
+            infrastructure work, send a short note. A concise description of the current setup and the main pain point
+            is enough to start.
+          </p>
+        </div>
+        <aside class="card">
+          <p class="kicker">Fastest path</p>
+          <h2>Email</h2>
+          <p>The simplest way to reach me is by email.</p>
+          <p><a href="mailto:hello@admancorp.com">hello@admancorp.com</a></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card-grid two">
+        <article class="card">
+          <p class="kicker">Get in touch</p>
+          <h2 class="section-title">What to include</h2>
+          <p>
+            In your message, it helps to include your team size, current stack, the main issue you want to solve, and
+            what a useful outcome would look like.
+          </p>
+          <ul>
+            <li>Team size or engineering setup</li>
+            <li>Current infrastructure or deployment stack</li>
+            <li>Main pain point or bottleneck</li>
+            <li>What success would look like</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <p class="kicker">Practical details</p>
+          <h2 class="section-title">Working assumptions</h2>
+          <ul class="list-clean">
+            <li>Based in the Montreal area</li>
+            <li>Remote-friendly</li>
+            <li>Expected response time: within 2 business days</li>
+            <li><a href="https://github.com/Adman-Corp" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card-grid two">
+        <article class="card">
+          <p class="kicker">Good fit</p>
+          <h2 class="section-title">Typical project scope</h2>
+          <p>
+            Typical engagements are focused pieces of infrastructure or delivery work that can be scoped clearly and
+            implemented pragmatically.
+          </p>
+          <ul>
+            {goodFit.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="card">
+          <p class="kicker">Not the focus</p>
+          <h2 class="section-title">What this site is not positioning for</h2>
+          <ul>
+            {notFocus.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <p>
+            If you are not sure whether a project is a fit, send a brief description anyway. If it is outside scope, I
+            can usually tell you that quickly.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <div class="container">
+    <SiteFooter />
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-hero {
+    padding-top: 4rem;
+  }
+
+  .contact-hero__inner {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.4rem, 5vw, 4.25rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .contact-hero__lede {
+    max-width: 40rem;
+    margin: 0;
+    color: var(--color-muted);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+  }
+
+  @media (min-width: 64rem) {
+    .contact-hero__inner {
+      grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.75fr);
+      align-items: start;
+    }
+  }
+</style>

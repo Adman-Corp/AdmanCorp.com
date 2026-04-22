@@ -1,5 +1,8 @@
 import { defineConfig } from 'astro/config';
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
-  site: 'https://admancorp.com'
+  site: 'https://admancorp.com',
+  adapter: cloudflare()
 });

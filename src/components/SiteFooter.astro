@@ -1,7 +1,9 @@
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <div>
-      <p class="site-footer__brand">Adman Inc.</p>
+      <a class="site-footer__brand" href="/" aria-label="Adman Inc.">
+        <img class="site-footer__brand-image" src="/footLogo.png" alt="Adman Inc." />
+      </a>
       <p class="site-footer__meta">Montreal, QC</p>
     </div>
     <ul class="site-footer__links">
@@ -13,11 +15,15 @@
 </footer>
 
 <style>
+  .site-footer {
+    padding-top: 0;
+  }
+
   .site-footer__inner {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
     border-top: 1px solid var(--color-border);
   }
 
@@ -27,8 +33,20 @@
   }
 
   .site-footer__brand {
+    display: inline-flex;
+    align-items: center;
     color: var(--color-text);
-    font-weight: 600;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+  }
+
+  .site-footer__brand-image {
+    display: block;
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
   }
 
   .site-footer__links {
@@ -42,6 +60,11 @@
 
   .site-footer__links a {
     text-decoration: none;
+    color: var(--color-muted);
+  }
+
+  .site-footer__links a:hover {
+    color: var(--color-accent);
   }
 
   @media (min-width: 48rem) {

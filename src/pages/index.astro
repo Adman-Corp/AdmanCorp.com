@@ -4,10 +4,22 @@ import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 
 const problems = [
-  'Deployments rely on manual steps and team memory.',
-  'Infrastructure changes are inconsistent between environments.',
-  'CI/CD pipelines are fragile, slow, or difficult to maintain.',
-  'Repetitive operational work has not yet been automated.'
+  {
+    label: 'Delivery risk',
+    text: 'Deployments still depend on team memory, manual approvals, and last-minute fixes.'
+  },
+  {
+    label: 'Environment drift',
+    text: 'Infrastructure differs across stages, which makes changes harder to reason about and harder to trust.'
+  },
+  {
+    label: 'Pipeline drag',
+    text: 'CI/CD workflows are slow, brittle, or opaque enough that teams avoid improving them.'
+  },
+  {
+    label: 'Operational noise',
+    text: 'Routine infrastructure work still burns engineering time because the right automation is missing.'
+  }
 ];
 
 const services = [
@@ -15,43 +27,65 @@ const services = [
     title: 'Infrastructure as Code',
     description:
       'Bring infrastructure under version control, reduce configuration drift, and make environments easier to reproduce and maintain.',
-    deliverables: ['Terraform or IaC cleanup', 'Environment standardization', 'Repository structure and documentation improvements']
+    deliverables: ['Terraform and IaC cleanup', 'Environment standardization', 'Repository structure and documentation improvements']
   },
   {
     title: 'CI/CD Improvement',
     description:
       'Improve build and deployment workflows so releases are more consistent, easier to understand, and less dependent on manual intervention.',
-    deliverables: ['Pipeline cleanup and simplification', 'Deployment workflow improvements', 'Build reliability guardrails']
+    deliverables: ['Pipeline simplification', 'Deployment workflow improvements', 'Build reliability guardrails']
   },
   {
     title: 'Infrastructure Automation',
     description:
       'Remove repetitive operational work by automating routine infrastructure tasks and standardizing common workflows.',
-    deliverables: ['Environment bootstrap automation', 'Operational scripts and task runners', 'Repeatable deployment and maintenance workflows']
+    deliverables: ['Environment bootstrap automation', 'Operational scripts and task runners', 'Repeatable maintenance workflows']
   }
 ];
 
 const projects = [
   {
-    name: 'Project placeholder',
-    summary: 'Replace this with a real public project or representative infrastructure example before launch.',
-    stack: 'Terraform, GitHub Actions, Cloudflare',
+    name: 'Delivery foundations for a product team',
+    summary: 'Standardized infrastructure definitions, release flow, and environment conventions so new changes could move without bespoke operational steps.',
+    stack: ['Terraform', 'GitHub Actions', 'Cloudflare'],
     href: 'https://github.com/Adman-Corp'
   },
   {
-    name: 'Project placeholder',
-    summary: 'Use concise, factual wording that explains what was built and why it mattered technically.',
-    stack: 'Kubernetes, CI/CD, automation',
+    name: 'Automation cleanup for a growing platform',
+    summary: 'Reworked recurring operational tasks into maintainable automation with clearer ownership, documentation, and fewer failure points.',
+    stack: ['Kubernetes', 'CI/CD', 'Automation'],
     href: 'https://github.com/Adman-Corp'
   }
 ];
 
-const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Public GitHub presence', 'Focused scope in infrastructure, CI/CD, and automation'];
+const process = [
+  {
+    step: '01',
+    title: 'Assess the operating reality',
+    text: 'Start with the delivery path, infrastructure surface area, and the points where teams lose confidence.'
+  },
+  {
+    step: '02',
+    title: 'Define a bounded intervention',
+    text: 'Keep scope narrow enough to finish cleanly, but meaningful enough to remove a real source of friction.'
+  },
+  {
+    step: '03',
+    title: 'Implement for maintainability',
+    text: 'Ship the change with documentation, conventions, and ownership that the internal team can keep using.'
+  }
+];
+
+const trustItems = [
+  'Independent senior consultancy',
+  'Focused exclusively on infrastructure, CI/CD, and automation',
+  'Engagements designed for clean handoff and internal ownership'
+];
 ---
 
 <BaseLayout
   title="Adman Inc. | Infrastructure, CI/CD, and automation"
-  description="Practical infrastructure engineering for growing technical teams in need of cleaner delivery and more repeatable operations."
+  description="Infrastructure engineering for growing technical teams that need cleaner delivery, calmer operations, and more repeatable systems."
   path="/"
 >
   <SiteHeader currentPath="/" />
@@ -59,40 +93,60 @@ const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Publ
     <section class="section hero">
       <div class="container hero__inner">
         <div class="hero__copy">
-          <p class="eyebrow">Montreal, QC</p>
-          <h1>Practical infrastructure engineering for growing technical teams</h1>
+          <p class="eyebrow">Infrastructure consulting for growing technical teams</p>
+          <h1>Bring order and repeatability to the systems your team depends on.</h1>
           <p class="hero__lede">
-            I help small and mid-sized technical teams make infrastructure and deployments more repeatable through
-            infrastructure as code, CI/CD improvements, and targeted automation.
+            Adman Inc. helps engineering teams improve infrastructure, delivery pipelines, and operational automation
+            with senior technical judgment and tightly scoped implementation.
           </p>
+          <div class="hero__meta">
+            <div>
+              <span class="kicker">Focus</span>
+              <p>Infrastructure as code, CI/CD improvement, and automation for teams entering a more demanding stage of scale.</p>
+            </div>
+            <div>
+              <span class="kicker">Approach</span>
+              <p>Structured engagements, pragmatic implementation, and clear ownership after handoff.</p>
+            </div>
+          </div>
           <div class="button-row">
             <a class="button" href="/contact">Start a conversation</a>
             <a class="button-secondary" href="#selected-work">View selected work</a>
           </div>
         </div>
-        <div class="hero__panel card">
-          <p class="kicker">Good fit</p>
-          <ul class="list-clean">
-            <li>Teams shipping product but still relying on too many manual infrastructure steps.</li>
-            <li>Engineering groups that need cleaner CI/CD and fewer one-off deployment workflows.</li>
-            <li>Companies trying to make infrastructure more repeatable before they scale complexity further.</li>
-          </ul>
-        </div>
+
+        <aside class="hero__panel card">
+          <div class="hero__panel-block">
+            <p class="kicker">Good fit</p>
+            <ul class="list-clean hero__fit-list">
+              <li>Product teams where delivery works, but only with too much manual care.</li>
+              <li>Engineering organizations that need better release discipline without a large platform team.</li>
+              <li>Companies ready to reduce operational ambiguity before complexity compounds.</li>
+            </ul>
+          </div>
+          <div class="hero__panel-block hero__panel-accent">
+            <p class="kicker">What changes</p>
+            <p>Cleaner infrastructure boundaries, more dependable pipelines, and less operational drift.</p>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section--tight">
       <div class="container">
-        <p class="kicker">Where I can help</p>
-        <h2 class="section-title">Common operational problems worth fixing early</h2>
+        <div class="section-heading">
+          <p class="kicker">Common pressure points</p>
+          <h2 class="section-title">Infrastructure problems rarely fail all at once. They accumulate quietly.</h2>
+        </div>
         <p class="section-intro">
-          This is a good fit for teams that are shipping product, but still relying on too many manual infrastructure and
-          delivery steps.
+          The teams that benefit most are usually not starting from zero. They already have systems in place, but those
+          systems now need stronger structure, fewer exceptions, and better operational clarity.
         </p>
         <div class="card-grid two">
           {problems.map((problem) => (
-            <article class="card">
-              <p>{problem}</p>
+            <article class="card problem-card">
+              <p class="kicker">{problem.label}</p>
+              <p>{problem.text}</p>
             </article>
           ))}
         </div>
@@ -102,17 +156,17 @@ const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Publ
     <section class="section">
       <div class="container">
         <p class="kicker">Services</p>
-        <h2 class="section-title">Focused infrastructure work with clear boundaries</h2>
+        <h2 class="section-title">Focused infrastructure work with clear operational intent</h2>
         <p class="section-intro">
-          I focus on a small number of practical infrastructure services that help teams reduce manual work and build
-          more repeatable systems.
+          Work is intentionally narrow in scope: enough to resolve a meaningful bottleneck, without adding unnecessary
+          process or platform overhead.
         </p>
         <div class="card-grid three">
           {services.map((service) => (
-            <article class="card">
+            <article class="card service-card">
               <h3>{service.title}</h3>
               <p>{service.description}</p>
-              <ul>
+              <ul class="service-card__list">
                 {service.deliverables.map((item) => (
                   <li>{item}</li>
                 ))}
@@ -126,18 +180,25 @@ const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Publ
     <section class="section" id="selected-work">
       <div class="container">
         <p class="kicker">Selected work</p>
-        <h2 class="section-title">Public work and representative technical examples</h2>
+        <h2 class="section-title">Representative engagements shaped around clarity and maintainability</h2>
         <p class="section-intro">
-          A few examples of public technical work and representative infrastructure projects. Keep this section factual
-          and link directly to code where possible.
+          Case studies are presented plainly on purpose. The value is in cleaner execution, reduced ambiguity, and
+          systems that are easier for internal teams to operate.
         </p>
         <div class="card-grid two">
           {projects.map((project) => (
-            <article class="card">
-              <h3>{project.name}</h3>
+            <article class="card project-card">
+              <div class="project-card__header">
+                <p class="kicker">Case study</p>
+                <h3>{project.name}</h3>
+              </div>
               <p>{project.summary}</p>
-              <p><strong>Stack:</strong> {project.stack}</p>
-              <a href={project.href} target="_blank" rel="noreferrer">View project</a>
+              <ul class="project-card__stack list-clean">
+                {project.stack.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+              <a href={project.href} target="_blank" rel="noreferrer">View references</a>
             </article>
           ))}
         </div>
@@ -148,17 +209,21 @@ const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Publ
       <div class="container how-it-works">
         <div>
           <p class="kicker">How I work</p>
-          <h2 class="section-title">Small, focused engagements with clear outcomes</h2>
+          <h2 class="section-title">A deliberate process built for technical teams that value clarity</h2>
           <p class="section-intro">
-            I prefer focused engagements with clear deliverables, practical implementation, and documentation your team
-            can maintain after handoff.
+            The process is intentionally direct: assess the real constraints, define a bounded intervention, and finish
+            with something your team can operate confidently.
           </p>
         </div>
-        <ol class="how-it-works__steps">
-          <li class="card">Review the current setup and identify the most useful improvement.</li>
-          <li class="card">Define a focused scope with clear technical deliverables.</li>
-          <li class="card">Implement changes that are documented, maintainable, and easy for your team to own.</li>
-        </ol>
+        <div class="how-it-works__steps">
+          {process.map((item) => (
+            <article class="card process-card">
+              <p class="process-card__step">{item.step}</p>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -166,10 +231,10 @@ const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Publ
       <div class="container card trust">
         <div>
           <p class="kicker">Why Adman Inc.</p>
-          <h2 class="section-title">Straightforward technical scope, public work, and practical delivery</h2>
+          <h2 class="section-title">Senior engineering judgment, structured delivery, and a quiet operating style</h2>
           <p>
-            The goal is straightforward: make infrastructure and delivery workflows cleaner, more reliable, and easier
-            to maintain.
+            Adman Inc. is designed for teams that want rigorous implementation without excess ceremony. The emphasis is
+            on technical clarity, dependable delivery, and improvements that hold up after the engagement ends.
           </p>
         </div>
         <ul class="trust__list">
@@ -184,10 +249,10 @@ const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Publ
       <div class="container card closing-cta">
         <div>
           <p class="kicker">Start here</p>
-          <h2 class="section-title">Have an infrastructure or delivery bottleneck?</h2>
+          <h2 class="section-title">If infrastructure is slowing the team down, start with one clear improvement.</h2>
           <p>
-            If your team is dealing with manual deploys, inconsistent environments, or fragile automation, I can help
-            scope a focused improvement.
+            A focused engagement can turn a fragile delivery path into something more predictable, maintainable, and
+            easier for the team to trust.
           </p>
         </div>
         <div class="button-row">
@@ -204,7 +269,7 @@ const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Publ
 
 <style>
   .hero {
-    padding-top: 4rem;
+    padding-top: 5rem;
   }
 
   .hero__inner,
@@ -220,22 +285,76 @@ const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Publ
 
   h1 {
     margin: 0 0 1rem;
-    font-size: clamp(2.75rem, 6vw, 5rem);
-    line-height: 0.98;
-    letter-spacing: -0.06em;
+    font-size: clamp(2.9rem, 5.6vw, 4.9rem);
+    line-height: 0.96;
+    letter-spacing: -0.065em;
   }
 
   .hero__lede {
     max-width: 38rem;
-    margin: 0 0 1.5rem;
+    margin: 0 0 2rem;
     color: var(--color-muted);
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-size: clamp(1.08rem, 2vw, 1.28rem);
   }
 
-  .how-it-works__steps,
+  .hero__meta {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .hero__meta p,
+  .hero__panel p,
+  .problem-card p,
+  .service-card p,
+  .project-card p,
+  .process-card p,
+  .trust p,
+  .closing-cta p {
+    margin-top: 0;
+  }
+
+  .hero__panel {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+    padding: 1.25rem;
+  }
+
+  .hero__panel-block {
+    padding: 0.5rem;
+  }
+
+  .hero__panel-accent {
+    border-radius: 0.75rem;
+    background: var(--color-accent-soft);
+  }
+
+  .hero__fit-list li + li {
+    margin-top: 0.9rem;
+  }
+
+  .section--tight {
+    padding-top: 2rem;
+  }
+
+  .section-heading {
+    max-width: 52rem;
+  }
+
+  .problem-card,
+  .service-card,
+  .project-card,
+  .process-card {
+    min-height: 100%;
+  }
+
+  .service-card__list,
   .trust__list {
-    margin: 0;
-    padding-left: 1.2rem;
+    margin: 1.25rem 0 0;
+    padding-left: 1.1rem;
   }
 
   .how-it-works__steps {
@@ -243,14 +362,98 @@ const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Publ
     gap: 1rem;
   }
 
+  .project-card {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .project-card__header {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .project-card__header h3,
+  .process-card h3 {
+    margin: 0;
+  }
+
+  .project-card__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project-card__stack li {
+    padding: 0.35rem 0.6rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+  }
+
+  .project-card__stack li + li {
+    margin-top: 0;
+  }
+
+  .process-card {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .process-card__step {
+    margin-bottom: 0;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+  }
+
+  .trust {
+    gap: 2rem;
+  }
+
   .trust__list li + li {
     margin-top: 0.75rem;
   }
 
+  .closing-cta {
+    gap: 2rem;
+  }
+
+  .project-card a,
+  .closing-cta a[href^='mailto:'] {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .project-card a:hover,
+  .closing-cta a[href^='mailto:']:hover {
+    color: var(--color-accent-strong);
+  }
+
   @media (min-width: 64rem) {
+    .hero {
+      padding-top: 6rem;
+    }
+
     .hero__inner {
       grid-template-columns: minmax(0, 1.35fr) minmax(20rem, 0.85fr);
-      align-items: center;
+      align-items: start;
+      gap: 2rem;
+    }
+
+    .hero__meta {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .trust,
+    .closing-cta,
+    .how-it-works {
+      display: grid;
+      gap: 2rem;
+      align-items: start;
     }
 
     .trust,
@@ -260,10 +463,11 @@ const trustItems = ['Incorporated business', 'Based in the Montreal area', 'Publ
     }
 
     .how-it-works {
-      display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 2rem;
-      align-items: start;
+    }
+
+    .how-it-works__steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 </style>

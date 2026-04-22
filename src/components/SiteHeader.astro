@@ -14,7 +14,12 @@ const navItems = [
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="site-header__brand" href="/">Adman Inc.</a>
+    <a class="site-header__brand" href="/" aria-label="Adman Inc.">
+      <img class="site-header__brand-symbol" src="/symbole.png" alt="" aria-hidden="true" />
+      <span class="site-header__brand-wordmark-wrap" aria-hidden="true">
+        <img class="site-header__brand-wordmark" src="/Wordmark.png" alt="" />
+      </span>
+    </a>
     <nav aria-label="Primary">
       <ul class="site-header__nav">
         {navItems.map((item) => (
@@ -40,23 +45,54 @@ const navItems = [
     position: sticky;
     top: 0;
     z-index: 10;
-    backdrop-filter: blur(18px);
-    background: rgba(245, 243, 239, 0.82);
-    border-bottom: 1px solid rgba(216, 221, 217, 0.85);
+    backdrop-filter: blur(14px);
+    background: rgba(245, 247, 244, 0.88);
+    border-bottom: 1px solid rgba(216, 224, 228, 0.92);
   }
 
   .site-header__inner {
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    min-height: 4.5rem;
+    min-height: 5.75rem;
   }
 
   .site-header__brand {
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-shrink: 0;
     text-decoration: none;
+  }
+
+  .site-header__brand-symbol,
+  .site-header__brand-wordmark-wrap {
+    display: block;
+  }
+
+  .site-header__brand-symbol {
+    width: 2.8rem;
+    height: 2.8rem;
+    object-fit: contain;
+  }
+
+  .site-header__brand-wordmark-wrap {
+    position: relative;
+    width: 15rem;
+    height: 6rem;
+    overflow: hidden;
+  }
+
+  .site-header__brand-wordmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 151%;
+    max-width: none;
+    height: auto;
+    transform: translate(-63.2%, -47.25%);
   }
 
   .site-header__nav {
@@ -71,11 +107,12 @@ const navItems = [
   .site-header__nav a {
     color: var(--color-muted);
     text-decoration: none;
+    transition: color 160ms ease;
   }
 
   .site-header__nav a.active,
   .site-header__nav a:hover {
-    color: var(--color-text);
+    color: var(--color-accent);
   }
 
   .site-header__cta {
@@ -83,7 +120,14 @@ const navItems = [
   }
 
   @media (min-width: 48rem) {
-    .site-header__nav,
+    .site-header__nav {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, calc(-50% + 0.22rem));
+      display: inline-flex;
+    }
+
     .site-header__cta {
       display: inline-flex;
     }

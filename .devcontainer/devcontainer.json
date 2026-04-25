@@ -1,8 +1,6 @@
 {
   "name": "AdmanCorp Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "remoteUser": "vscode",

@@ -1,0 +1,24 @@
+{
+  "name": "AdmanCorp Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "remoteUser": "vscode",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "editor.formatOnSave": true
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-azuretools.vscode-docker",
+    "streetsidesoftware.code-spell-checker"
+  ],
+  "postCreateCommand": "npm install --silent",
+  "forwardPorts": [3000, 5173],
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  }
+}

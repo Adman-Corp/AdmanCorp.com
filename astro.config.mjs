@@ -4,5 +4,7 @@ import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
   site: 'https://admancorp.com',
-  adapter: cloudflare()
+  adapter: cloudflare({
+    runtime: 'edge'
+  })
 });
